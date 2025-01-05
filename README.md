@@ -1,3 +1,5 @@
+---
+
 # Imperial Dating System
 
 Цей проект демонструє поточну дату та час у двох форматах:
@@ -43,6 +45,7 @@ Imperial Time — це час у межах поточної частини ро
 1. **getModernDate()**: повертає поточну дату та час у звичному форматі.
 2. **getImperialDate()**: конвертує поточну дату у формат Imperial Dating System.
 3. **getImperialTime()**: конвертує поточний час у формат Imperial Time.
+4. **isLeapYear()**: перевіряє, чи є рік високосним.
 
 ---
 
@@ -61,7 +64,7 @@ Imperial Time — це час у межах поточної частини ро
 
 1. Клонуйте репозиторій:
    ```bash
-   git clone https://github.com/ваш-нікнейм/Imperial-Dating-System.git
+   git clone https://github.com/kosvoorhees92/Imperial-Dating-System.git
    ```
 2. Відкрийте папку проекту:
    ```bash
@@ -73,7 +76,7 @@ Imperial Time — це час у межах поточної частини ро
 
 ## Технології
 - **HTML**: структура сторінки.
-- **CSS**: стилізація сторінки (готичний шрифт, кольори, градієнтний фон).
+- **CSS**: стилізація сторінки (готичний шрифт, кольори, градієнтний фон, анімації).
 - **JavaScript**: розрахунок та оновлення дати та часу в реальному часі.
 
 ---
@@ -91,9 +94,18 @@ Kostya Voorhees
 ## Подяка
 - **Google Fonts** за готичний шрифт [MedievalSharp](https://fonts.google.com/specimen/MedievalSharp).
 - Всесвіт **Warhammer 40,000** за натхнення.
+- **Transparent Textures** за текстуру фону.
 
 ---
 
 ## Посилання
 - [GitHub Repository](https://github.com/kosvoorhees92/Imperial-Dating-System)
 - [GitHub Pages](https://kosvoorhees92.github.io/Imperial-Dating-System)
+
+---
+
+### Оновлення:
+- **Високосні роки**: Додано функцію для перевірки високосних років, що покращує точність розрахунків.
+- **UI-вдосконалення**: Додано анімації, тіні та плавні переходи для кращого вигляду сторінки.
+
+---

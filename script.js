@@ -8,12 +8,14 @@ function convertToImperial() {
 
     const now = new Date(modernDateInput);
     const year = now.getFullYear();
-    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const startOfYear = new Date(year, 0, 0); // Початок року
+    const diff = now - startOfYear; // Різниця в мілісекундах
+    const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24)); // День року
     const hour = now.getHours();
-    const determinedHour = dayOfYear * 24 + hour;
-    const yearFraction = Math.floor(determinedHour * 0.11407955);
-    const millennium = Math.floor(year / 1000) + 1;
-    const imperialYear = year % 1000;
+    const determinedHour = dayOfYear * 24 + hour; // Загальна кількість годин з початку року
+    const yearFraction = Math.floor(determinedHour * 0.11407955); // Year Fraction
+    const millennium = Math.floor(year / 1000) + 1; // Millennium
+    const imperialYear = year % 1000; // Останні три цифри року
 
     const imperialDate = `${String(yearFraction).padStart(3, '0')}.${String(imperialYear).padStart(3, '0')}.M${millennium}`;
     document.getElementById('converted-imperial-date').textContent = imperialDate;
@@ -35,12 +37,14 @@ function convertToModern() {
     // Розраховуємо рік у сучасному форматі
     const modernYear = (millenniumNumber - 1) * 1000 + yearNumber;
 
-    // Розраховуємо день року та час
+    // Розраховуємо загальну кількість секунд з початку року
     const totalSeconds = yearFractionNumber * 31536; // 31536 = 86400 * 365 / 1000
-    const dayOfYear = Math.floor(totalSeconds / 86400);
-    const hour = Math.floor((totalSeconds % 86400) / 3600);
-    const minute = Math.floor((totalSeconds % 3600) / 60);
-    const second = totalSeconds % 60;
+
+    // Розраховуємо день року та час
+    const dayOfYear = Math.floor(totalSeconds / 86400); // Дні
+    const hour = Math.floor((totalSeconds % 86400) / 3600); // Години
+    const minute = Math.floor((totalSeconds % 3600) / 60); // Хвилини
+    const second = totalSeconds % 60; // Секунди
 
     // Створюємо об'єкт Date
     const modernDate = new Date(modernYear, 0); // Початок року
@@ -59,7 +63,9 @@ function getModernDate() {
 function getImperialDate() {
     const now = new Date();
     const year = now.getFullYear();
-    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const startOfYear = new Date(year, 0, 0);
+    const diff = now - startOfYear;
+    const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hour = now.getHours();
     const determinedHour = dayOfYear * 24 + hour;
     const yearFraction = Math.floor(determinedHour * 0.11407955);
@@ -72,12 +78,9 @@ function getImperialDate() {
 function getImperialTime() {
     const now = new Date();
     const year = now.getFullYear();
-    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const second = now.getSeconds();
-
-    const totalSeconds = dayOfYear * 86400 + hour * 3600 + minute * 60 + second;
+    const startOfYear = new Date(year, 0, 0);
+    const diff = now - startOfYear;
+    const totalSeconds = Math.floor(diff / 1000);
     const yearFraction = Math.floor(totalSeconds / 31536);
     const imperialSeconds = totalSeconds % 31536;
     const imperialHours = Math.floor(imperialSeconds / 3600);

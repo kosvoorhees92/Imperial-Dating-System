@@ -4,7 +4,7 @@
 /* Загальні стилі для сторінки */
 body {
     font-family: 'MedievalSharp', cursive;
-    background-color: #cc8800; /* Основний колір фону */
+    background-color: #1a1a1a; /* Темний фон */
     background-image: url("https://www.transparenttextures.com/patterns/brushed-alum-dark.png"); /* Текстура фону */
     color: #d3d3d3; /* Світлий колір тексту */
     margin: 0;

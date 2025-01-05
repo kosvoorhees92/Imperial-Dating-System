@@ -1,0 +1,35 @@
+/* Загальні стилі */
+body {
+    font-family: 'MedievalSharp', cursive; /* Готичний шрифт */
+    background-color: #1a1a1a; /* Темний фон */
+    color: #d3d3d3; /* Світлий текст */
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 3rem;
+    color: #8b0000; /* Темно-червоний колір */
+    text-shadow: 2px 2px 4px #000000; /* Тінь для тексту */
+}
+
+/* Параграфи */
+p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+/* Сучасна дата */
+#modern-date {
+    color: #ffd700; /* Золотий колір */
+    font-weight: bold;
+}
+
+/* Imperial Date */
+#imperial-date {
+    color: #b22222; /* Червоний колір */
+    font-weight: bold;
+    font-size: 1.8rem;
+}

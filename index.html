@@ -10,7 +10,38 @@
     <h1>Current Date and Time</h1>
     <p>Modern Date: <span id="modern-date"></span></p>
     <p>Imperial Date: <span id="imperial-date"></span></p>
-    <p>Imperial Time: <span id="imperial-time"></span></p> <!-- Новий елемент для Imperial Time -->
+    <p>Imperial Time: <span id="imperial-time"></span></p>
+
+    <!-- Пояснення для Imperial Date та Imperial Time -->
+    <div class="explanation">
+        <h2>How Imperial Time Works</h2>
+        <p>
+            <strong>Imperial Date</strong> is based on the "Anno Domini" system, but adapted for the Warhammer 40,000 universe. It consists of three parts:
+        </p>
+        <ul>
+            <li><strong>Year Fraction</strong>: The year is divided into 1000 parts (000-999), each representing approximately 8.76 hours.</li>
+            <li><strong>Year</strong>: The last three digits of the year (e.g., 023 for 2023).</li>
+            <li><strong>Millennium</strong>: The current millennium (e.g., M3 for the 3rd millennium).</li>
+        </ul>
+        <p>
+            <strong>Imperial Time</strong> is measured within the current Year Fraction. Each Year Fraction is divided into:
+        </p>
+        <ul>
+            <li><strong>Hours</strong>: 0-8 (since each fraction is ~8.76 hours).</li>
+            <li><strong>Minutes</strong>: 0-59.</li>
+            <li><strong>Seconds</strong>: 0-59.</li>
+        </ul>
+        <p>
+            For example, <strong>549:06:45:12</strong> means:
+        </p>
+        <ul>
+            <li><strong>549</strong>: The 549th part of the year.</li>
+            <li><strong>06</strong>: 6 hours into the current fraction.</li>
+            <li><strong>45</strong>: 45 minutes.</li>
+            <li><strong>12</strong>: 12 seconds.</li>
+        </ul>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -22,10 +22,10 @@ function updateDateTime() {
     document.getElementById('modern-date').textContent = getModernDate();
     // Оновлюємо Imperial Date
     document.getElementById('imperial-date').textContent = getImperialDate();
+
+    // Викликаємо функцію знову перед наступним оновленням екрану
+    requestAnimationFrame(updateDateTime);
 }
 
-// Оновлюємо дату та час кожну секунду (1000 мілісекунд)
-setInterval(updateDateTime, 1000);
-
-// Викликаємо функцію одразу, щоб уникнути затримки в 1 секунду при завантаженні сторінки
+// Запускаємо оновлення
 updateDateTime();

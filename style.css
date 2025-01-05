@@ -78,11 +78,69 @@ p {
     transition: color 0.5s ease; /* Плавна зміна кольору */
 }
 
+/* Стилі для конвертера */
+.converter {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.converter h2 {
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.converter input {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px 0;
+    border: 1px solid #8b0000;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #d3d3d3;
+}
+
+.converter button {
+    background-color: #8b0000;
+    color: #d3d3d3;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.converter button:hover {
+    background-color: #b22222;
+    transform: scale(1.1);
+}
+
+.converter p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #00bfff;
+}
+
+/* Стилі для поточного часу */
+.current-time {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+}
+
 /* Стилі для пояснень */
 .explanation {
     margin-top: 40px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Темний фон з прозорістю */
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     max-width: 600px;
     text-align: left;

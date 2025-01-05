@@ -5,16 +5,39 @@ function getModernDate() {
 
 function getImperialDate() {
     const now = new Date();
-    const year = now.getFullYear(); // Отримуємо поточний рік (наприклад, 2023)
-    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)); // День року (1-365)
-    const hour = now.getHours(); // Поточний час (години)
-    const determinedHour = dayOfYear * 24 + hour; // Загальна кількість годин з початку року
-    const yearFraction = Math.floor(determinedHour * 0.11407955); // Розраховуємо Year Fraction (000-999)
-    const millennium = Math.floor(year / 1000) + 1; // Розраховуємо Millennium (наприклад, 2023 -> M3)
-    const imperialYear = year % 1000; // Отримуємо останні три цифри року (наприклад, 2023 -> 023)
+    const year = now.getFullYear();
+    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const hour = now.getHours();
+    const determinedHour = dayOfYear * 24 + hour;
+    const yearFraction = Math.floor(determinedHour * 0.11407955);
+    const millennium = Math.floor(year / 1000) + 1;
+    const imperialYear = year % 1000;
 
-    // Форматуємо Imperial Date: Year Fraction.Year.Millennium
     return `${String(yearFraction).padStart(3, '0')}.${String(imperialYear).padStart(3, '0')}.M${millennium}`;
+}
+
+function getImperialTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+
+    // Розраховуємо загальну кількість секунд з початку року
+    const totalSeconds = dayOfYear * 86400 + hour * 3600 + minute * 60 + second;
+
+    // Розраховуємо Year Fraction (частина року)
+    const yearFraction = Math.floor(totalSeconds / 31536); // 31536 = 86400 * 365 / 1000
+
+    // Розраховуємо час у межах поточної частини року (Imperial Time)
+    const imperialSeconds = totalSeconds % 31536;
+    const imperialHours = Math.floor(imperialSeconds / 3600);
+    const imperialMinutes = Math.floor((imperialSeconds % 3600) / 60);
+    const imperialSecondsFinal = imperialSeconds % 60;
+
+    // Форматуємо Imperial Time
+    return `${String(yearFraction).padStart(3, '0')}:${String(imperialHours).padStart(2, '0')}:${String(imperialMinutes).padStart(2, '0')}:${String(imperialSecondsFinal).padStart(2, '0')}`;
 }
 
 function updateDateTime() {
@@ -22,10 +45,9 @@ function updateDateTime() {
     document.getElementById('modern-date').textContent = getModernDate();
     // Оновлюємо Imperial Date
     document.getElementById('imperial-date').textContent = getImperialDate();
-
-    // Викликаємо функцію знову перед наступним оновленням екрану
+    // Оновлюємо Imperial Time
+    document.getElementById('imperial-time').textContent = getImperialTime();
     requestAnimationFrame(updateDateTime);
 }
 
-// Запускаємо оновлення
 updateDateTime();

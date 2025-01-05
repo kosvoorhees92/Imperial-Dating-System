@@ -7,10 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Current Date and Time</h1>
-    <p>Modern Date: <span id="modern-date"></span></p>
-    <p>Imperial Date: <span id="imperial-date"></span></p>
-    <p>Imperial Time: <span id="imperial-time"></span></p>
+    <h1>Imperial Date Converter</h1>
+
+    <!-- Конвертер з сучасної дати на Imperial Date -->
+    <div class="converter">
+        <h2>Convert Modern Date to Imperial Date</h2>
+        <input type="date" id="modern-date-input">
+        <button onclick="convertToImperial()">Convert to Imperial</button>
+        <p>Imperial Date: <span id="converted-imperial-date"></span></p>
+    </div>
+
+    <!-- Конвертер з Imperial Date на сучасну дату -->
+    <div class="converter">
+        <h2>Convert Imperial Date to Modern Date</h2>
+        <input type="text" id="imperial-date-input" placeholder="Enter Imperial Date (e.g., 549.023.M3)">
+        <button onclick="convertToModern()">Convert to Modern</button>
+        <p>Modern Date: <span id="converted-modern-date"></span></p>
+    </div>
+
+    <!-- Поточний час та дата -->
+    <div class="current-time">
+        <h2>Current Date and Time</h2>
+        <p>Modern Date: <span id="modern-date"></span></p>
+        <p>Imperial Date: <span id="imperial-date"></span></p>
+        <p>Imperial Time: <span id="imperial-time"></span></p>
+    </div>
 
     <!-- Пояснення для Imperial Date та Imperial Time -->
     <div class="explanation">
@@ -30,15 +51,6 @@
             <li><strong>Hours</strong>: 0-8 (since each fraction is ~8.76 hours).</li>
             <li><strong>Minutes</strong>: 0-59.</li>
             <li><strong>Seconds</strong>: 0-59.</li>
-        </ul>
-        <p>
-            For example, <strong>549:06:45:12</strong> means:
-        </p>
-        <ul>
-            <li><strong>549</strong>: The 549th part of the year.</li>
-            <li><strong>06</strong>: 6 hours into the current fraction.</li>
-            <li><strong>45</strong>: 45 minutes.</li>
-            <li><strong>12</strong>: 12 seconds.</li>
         </ul>
     </div>
 

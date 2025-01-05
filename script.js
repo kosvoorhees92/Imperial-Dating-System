@@ -17,5 +17,15 @@ function getImperialDate() {
     return `${String(yearFraction).padStart(3, '0')}.${String(imperialYear).padStart(3, '0')}.M${millennium}`;
 }
 
-document.getElementById('modern-date').textContent = getModernDate();
-document.getElementById('imperial-date').textContent = getImperialDate();
+function updateDateTime() {
+    // Оновлюємо сучасну дату та час
+    document.getElementById('modern-date').textContent = getModernDate();
+    // Оновлюємо Imperial Date
+    document.getElementById('imperial-date').textContent = getImperialDate();
+}
+
+// Оновлюємо дату та час кожну секунду (1000 мілісекунд)
+setInterval(updateDateTime, 1000);
+
+// Викликаємо функцію одразу, щоб уникнути затримки в 1 секунду при завантаженні сторінки
+updateDateTime();

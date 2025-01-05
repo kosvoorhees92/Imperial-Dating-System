@@ -21,6 +21,11 @@ function convertToImperial() {
     document.getElementById('converted-imperial-date').textContent = imperialDate;
 }
 
+// Функція для перевірки високосного року
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
 // Функція для конвертації Imperial Date на сучасну дату
 function convertToModern() {
     const imperialDateInput = document.getElementById('imperial-date-input').value;
@@ -37,21 +42,18 @@ function convertToModern() {
     // Розраховуємо рік у сучасному форматі
     const modernYear = (millenniumNumber - 1) * 1000 + yearNumber;
 
-    // Розраховуємо загальну кількість секунд з початку року
-    const totalSeconds = yearFractionNumber * 31536; // 31536 = 86400 * 365 / 1000
+    // Визначаємо, чи є рік високосним
+    const isLeap = isLeapYear(modernYear);
 
-    // Розраховуємо день року та час
-    const dayOfYear = Math.floor(totalSeconds / 86400); // Дні
-    const hour = Math.floor((totalSeconds % 86400) / 3600); // Години
-    const minute = Math.floor((totalSeconds % 3600) / 60); // Хвилини
-    const second = totalSeconds % 60; // Секунди
+    // Розраховуємо день року на основі Year Fraction
+    const daysInYear = isLeap ? 366 : 365;
+    const dayOfYear = Math.floor(yearFractionNumber * (daysInYear / 1000)); // Точніший розрахунок
 
     // Створюємо об'єкт Date
     const modernDate = new Date(modernYear, 0, 1); // Початок року (1 січня)
     modernDate.setDate(modernDate.getDate() + dayOfYear); // Додаємо дні
-    modernDate.setHours(hour, minute, second); // Додаємо час
 
-    document.getElementById('converted-modern-date').textContent = modernDate.toLocaleString();
+    document.getElementById('converted-modern-date').textContent = modernDate.toLocaleDateString();
 }
 
 // Функції для відображення поточного часу

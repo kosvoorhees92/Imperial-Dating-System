@@ -1,3 +1,8 @@
+// Функція для перевірки високосного року
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
 // Функція для конвертації сучасної дати на Imperial Date
 function convertToImperial() {
     const modernDateInput = document.getElementById('modern-date-input').value;
